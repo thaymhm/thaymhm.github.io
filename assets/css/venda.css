@@ -1,0 +1,473 @@
+/* ==========================================================================
+   venda.css — Estilos das páginas de venda (produtos/[slug]/index.html)
+   Atenção: nunca escreva a sequência asterisco-barra dentro de um comentário,
+   ela fecha o comentário no meio e o navegador descarta a regra seguinte.
+   Carregado depois de tokens.css + base.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero da oferta
+   -------------------------------------------------------------------------- */
+
+.v-hero {
+  padding: var(--space-8) 0 var(--space-7);
+  text-align: center;
+}
+
+.v-hero .pill { margin-bottom: var(--space-5); }
+
+.v-hero h1 {
+  font-size: clamp(1.75rem, 5.5vw, 3rem);
+  margin-bottom: var(--space-4);
+  max-width: 20ch;
+  margin-inline: auto;
+  text-wrap: balance;   /* distribui as linhas em vez de deixar sobra curta no fim */
+}
+
+.v-hero .lede {
+  margin-inline: auto;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  text-wrap: pretty;    /* evita palavra sozinha na última linha */
+}
+
+.v-hero .v-actions { margin-top: var(--space-6); }
+
+.v-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.v-reassure {
+  display: block;
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--text-secondary);
+}
+
+/* Mockup do produto no hero */
+.v-mockup {
+  margin-top: var(--space-7);
+}
+
+.v-mockup img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: var(--radius);
+}
+
+/* Abaixo do hero de duas colunas, a imagem sobe pro topo, antes do texto.
+   Ela vem menor de propósito: grande demais ali empurra o botão de compra
+   pra fora da primeira tela, que é o único lugar onde ele precisa estar. */
+@media (max-width: 1019px) {
+  .v-hero > .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .v-hero .v-mockup {
+    order: -1;
+    margin-top: 0;
+    margin-bottom: var(--space-5);
+  }
+
+  .v-hero .v-mockup img { max-width: 220px; }
+}
+
+/* Hero em duas colunas, só onde cabe e só quando existe imagem de produto.
+   O :has() é o que deixa o mesmo CSS servir aos dois casos: com figure vira
+   grid, sem figure continua a coluna única centralizada do _template.
+   No celular nada disso vale, e a imagem fica embaixo do botão de compra.
+   O corte em 1020px não é redondo por acaso: os dois botões do hero somam
+   547px lado a lado, e abaixo dessa largura a coluna de texto fica menor que
+   isso, os botões empilham e o hero estica. */
+@media (min-width: 1020px) {
+  .v-hero:has(.v-mockup) { text-align: left; }
+
+  /* A coluna de texto é a maior de propósito: ela precisa caber os dois
+     botões lado a lado. Se apertar, eles empilham e o hero cresce. */
+  .v-hero:has(.v-mockup) > .container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr);
+    align-items: center;
+    gap: var(--space-7);
+  }
+
+  .v-hero:has(.v-mockup) h1 { margin-inline: 0; max-width: 18ch; }
+  .v-hero:has(.v-mockup) .lede { margin-inline: 0; max-width: 46ch; }
+  .v-hero:has(.v-mockup) .v-actions { justify-content: flex-start; }
+
+  /* Respiro lateral menor só nos botões do hero de duas colunas: é o que
+     faz os dois caberem lado a lado sem apertar a coluna da imagem. */
+  .v-hero:has(.v-mockup) .btn--lg { padding-inline: var(--space-6); }
+  .v-hero:has(.v-mockup) .v-mockup { margin-top: 0; }
+  .v-hero:has(.v-mockup) .v-mockup img { max-width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   Seções da página de venda
+   -------------------------------------------------------------------------- */
+
+.v-section {
+  padding: var(--space-8) 0;
+  scroll-margin-top: 80px;
+}
+
+.v-section--alt {
+  background: var(--bg-alt);
+}
+
+.v-section h2 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  margin-bottom: var(--space-3);
+  text-wrap: balance;
+}
+
+.v-section > .container > .lede { margin-bottom: var(--space-6); }
+
+.v-section-head {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+
+.v-section-head .eyebrow { display: block; margin-bottom: var(--space-3); }
+.v-section-head .lede { margin-inline: auto; }
+
+/* --------------------------------------------------------------------------
+   Lista de dores / benefícios
+   -------------------------------------------------------------------------- */
+
+.v-list { list-style: none; display: grid; gap: var(--space-3); }
+
+.v-list li {
+  position: relative;
+  padding-left: var(--space-7);
+  font-size: .98rem;
+  color: var(--text-secondary);
+}
+
+.v-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: .9rem;
+}
+
+.v-list--check li::before { content: "✓"; font-weight: 700; }
+.v-list--x li::before { content: "×"; font-weight: 700; color: var(--clay); }
+
+.v-list strong { color: var(--text); font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   Exemplo de saída do produto (mensagem pronta, print de resultado)
+   -------------------------------------------------------------------------- */
+
+.v-sample {
+  max-width: 520px;
+  margin: 0 auto var(--space-7);
+}
+
+.v-sample blockquote {
+  background: var(--blush);
+  color: var(--text);
+  border-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-sm);
+  padding: var(--space-5);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+
+.v-sample figcaption {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Grid de entregáveis / módulos
+   -------------------------------------------------------------------------- */
+
+.v-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.v-module {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+}
+
+.v-module .num {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: .08em;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.v-module h3 { font-size: 1rem; font-weight: 600; margin-bottom: var(--space-2); }
+
+.v-module p { font-size: .9rem; color: var(--text-secondary); }
+
+/* Comparação pra quem é / pra quem não é */
+.v-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.v-fit .card h3 {
+  font-size: .95rem;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Depoimentos
+   -------------------------------------------------------------------------- */
+
+.v-quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.v-quote {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+}
+
+.v-quote blockquote {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.v-quote figcaption {
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Bloco de oferta / preço
+   -------------------------------------------------------------------------- */
+
+.v-offer {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7) var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.v-offer h3 { font-size: 1.2rem; margin-bottom: var(--space-4); }
+
+.v-offer .v-includes {
+  list-style: none;
+  text-align: left;
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-5) 0;
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.v-offer .v-includes li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: .92rem;
+  color: var(--text-secondary);
+}
+
+.v-offer .v-includes li::before {
+  content: "✓";
+  position: absolute; left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.v-price { margin: var(--space-5) 0; }
+
+.v-price .old {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+.v-price .now {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.v-price .now small {
+  font-size: .4em;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.v-price .terms {
+  display: block;
+  font-size: .82rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Garantia
+   -------------------------------------------------------------------------- */
+
+.v-guarantee {
+  max-width: 560px;
+  margin: var(--space-6) auto 0;
+  background: var(--bg-alt);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  text-align: center;
+  font-size: .9rem;
+  color: var(--text-secondary);
+}
+
+.v-guarantee strong { color: var(--text); }
+
+/* --------------------------------------------------------------------------
+   FAQ (accordion nativo com <details>)
+   -------------------------------------------------------------------------- */
+
+.v-faq { max-width: 680px; margin: 0 auto; display: grid; gap: var(--space-3); }
+
+.v-faq details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.v-faq summary {
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 600;
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.v-faq summary::-webkit-details-marker { display: none; }
+
+.v-faq summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+
+.v-faq details[open] summary::after { content: "−"; }
+
+.v-faq details p {
+  padding: 0 var(--space-5) var(--space-5);
+  font-size: .92rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Barra de CTA fixa (mobile) — aparece após rolar o hero
+   -------------------------------------------------------------------------- */
+
+.v-sticky-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -6px 20px rgba(74, 52, 46, .1);
+  transform: translateY(110%);
+  transition: transform .25s ease;
+}
+
+.v-sticky-cta.visible { transform: translateY(0); }
+
+.v-sticky-cta .label {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.v-sticky-cta .label strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: .95rem;
+  color: var(--text);
+}
+
+@media (min-width: 721px) {
+  .v-sticky-cta { display: none; }
+}
+
+body:has(.v-sticky-cta) .site-footer { padding-bottom: var(--space-9); }
+
+@media (max-width: 480px) {
+  .v-section { padding: var(--space-7) 0; }
+  .v-offer { padding: var(--space-6) var(--space-4); }
+
+  /* Hero no celular: respiro menor que no desktop, mas nunca colado no header */
+  .v-hero { padding: var(--space-6) 0 var(--space-7); }
+
+  /* Sem o teto de 20ch a manchete usa a largura toda e quebra em menos linhas */
+  .v-hero h1 { max-width: none; }
+  .v-hero .lede { line-height: 1.6; }
+  .v-hero .v-actions { margin-top: var(--space-5); }
+  .v-mockup { margin-top: var(--space-6); }
+
+  /* Botão grande com respiro lateral menor, pra caber em uma linha só */
+  .btn--lg { padding: var(--space-4) var(--space-5); }
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Controle de Streaming e Contas Divididas com IA | Thayná de Morais</title>
+<meta name="description" content="Saiba quem te deve, quanto, e mande a cobrança pronta. O Copiloto calcula o rateio das suas assinaturas dentro de qualquer IA, inclusive a gratuita.">
+
+<!-- Remova esta linha quando o checkout estiver configurado e a página pronta pro público -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="product">
+<meta property="og:title" content="Controle de Streaming e Contas Divididas com IA">
+<meta property="og:description" content="Saiba quem te deve, quanto, e mande a cobrança pronta. Funciona com qualquer IA, inclusive a gratuita.">
+<meta property="og:locale" content="pt_BR">
+<!-- A imagem do link precisa de endereço absoluto, então ela é a única coisa
+     desta página que não usa caminho relativo. WhatsApp e LinkedIn não
+     resolvem caminho relativo. -->
+<meta property="og:image" content="https://thaymhm.github.io/assets/img/og-copiloto.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saiba quem te deve, quanto, e mande a cobrança pronta. Ao lado, a capa do Manual do Copiloto.">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ══ ÚNICO LUGAR PRA TROCAR O LINK DE CHECKOUT ══
+     Plataforma do projeto: HOTMART.
+     Pegue o link em Produtos → seu produto → Links de divulgação.
+       https://pay.hotmart.com/XXXXXXXXX
+     Enquanto estiver COLE-SEU-CODIGO-AQUI, os botões ficam desativados de
+     propósito, pra ninguém cair num link quebrado.                      -->
+<script>window.CHECKOUT_URL = "https://pay.hotmart.com/COLE-SEU-CODIGO-AQUI";</script>
+
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+
+<link rel="preload" href="../../assets/fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/fonts.css">
+
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/venda.css">
+
+<script src="../../assets/js/site.js" defer></script>
+<script src="../../assets/js/venda.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container container--wide">
+    <a href="../../" class="logo">Thayná de Morais</a>
+    <nav class="nav-links" id="main-nav" aria-label="Navegação principal">
+      <a href="#o-que-e">Como funciona</a>
+      <a href="#conteudo-produto">O que você recebe</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#oferta">Comprar</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ═══════════════ 1. HERO ═══════════════ -->
+
+  <!-- No desktop este hero vira duas colunas: o bloco .v-hero-text de um lado
+       e a .v-mockup do outro. No celular volta a empilhar, com a imagem por
+       último, pra o botão de compra não ser empurrado pra fora da primeira
+       tela. Sem a figure, o hero continua centralizado, como no _template. -->
+
+  <section class="v-hero">
+    <div class="container container--wide">
+      <div class="v-hero-text">
+        <span class="pill">Agente de IA · Contas divididas</span>
+        <h1>Saiba em 30 segundos quem te deve, quanto, e mande a cobrança pronta</h1>
+        <p class="lede">
+          Você paga Netflix, HBO e Spotify, divide com seis pessoas e refaz a conta todo mês.
+          O Copiloto faz isso por você, dentro de qualquer IA, inclusive a gratuita.
+        </p>
+        <div class="v-actions">
+          <a href="#" data-checkout class="btn btn--primary btn--lg">Quero meu Copiloto por R$ 37</a>
+          <a href="#o-que-e" class="btn btn--ghost btn--lg">Ver como funciona</a>
+        </div>
+        <span class="v-reassure">Acesso imediato · Pagamento único · 7 dias de garantia</span>
+      </div>
+
+      <figure class="v-mockup">
+        <img src="../../assets/img/copiloto-mockup.webp" width="840" height="840"
+             alt="Capa do Manual do Copiloto, um livro em tons de rosa e marrom com o ícone de cifrão dentro de um balão de conversa."
+             loading="eager" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 2. O PROBLEMA ═══════════════ -->
+
+  <section class="v-section v-section--alt" id="problema">
+    <div class="container">
+      <div class="v-section-head">
+        <span class="eyebrow">Se isso é você</span>
+        <h2>Você virou a contadora do grupo, sem receber pra isso</h2>
+      </div>
+      <ul class="v-list">
+        <li>As assinaturas estão no seu cartão, e cada uma tem uma lista diferente de gente dentro.</li>
+        <li>Todo mês você refaz a mesma conta de cabeça, e ela muda quando alguém entra no meio do mês.</li>
+        <li>Depois vem a parte chata: escrever uma mensagem por pessoa, cada uma com um valor diferente.</li>
+        <li>Duas semanas depois você não lembra quem pagou, e perguntar de novo é constrangedor.</li>
+        <li>Quando alguém sai, o valor de todo mundo muda e você recomeça do zero.</li>
+        <li>No fim, a diferença que ninguém pagou fica com quem colocou o cartão.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 3. A SOLUÇÃO ═══════════════ -->
+
+  <section class="v-section" id="o-que-e">
+    <div class="container">
+      <div class="v-section-head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>O Copiloto é um arquivo que você anexa na sua IA</h2>
+        <p class="lede">
+          Você anexa uma vez. Ele faz um setup guiado, pergunta quais assinaturas você paga,
+          quanto custa cada uma e quem divide o quê. A partir daí ele conhece os seus números
+          e responde com eles. No fim do mês você pede o fechamento e ele devolve o rateio
+          por pessoa com as mensagens de cobrança prontas pra copiar.
+        </p>
+      </div>
+
+      <figure class="v-sample">
+        <blockquote>
+          Bruna, fechando o mês: Netflix R$ 21,43 + Spotify R$ 6,82 = R$ 28,25.
+          Pode mandar no Pix de sempre.
+        </blockquote>
+        <figcaption>
+          Exemplo de cobrança gerada pelo Copiloto: Netflix de R$ 85,70 dividida por quatro,
+          Spotify de R$ 40,90 dividido por seis.
+        </figcaption>
+      </figure>
+
+      <ul class="v-list v-list--check">
+        <li>Calcula a parte exata de cada pessoa, por serviço</li>
+        <li>Escreve a mensagem de cobrança pronta pra colar no WhatsApp</li>
+        <li>Recalcula tudo quando alguém entra ou sai</li>
+        <li>Junta as dívidas dos dois lados em uma transferência só, quando vocês dividem coisas cruzadas</li>
+        <li>Marca quem já pagou e quem ainda está devendo</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 4. BÔNUS DE ESCOPO ═══════════════ -->
+
+  <section class="v-section v-section--alt" id="resto">
+    <div class="container">
+      <div class="v-section-head">
+        <span class="eyebrow">E no resto do mês</span>
+        <h2>Ele também é o seu copiloto pro resto do dinheiro</h2>
+      </div>
+      <ul class="v-list">
+        <li>Orçamento montado a partir dos seus gastos reais</li>
+        <li>"Posso comprar isso?" respondido em dois minutos</li>
+        <li>Fechamento do mês em cinco minutos</li>
+        <li>Mapa das dívidas com ordem de ataque</li>
+        <li>Modo caos: quando você está perdida, ele diagnostica e prioriza</li>
+        <li>Caça-brechas: assinatura repetida, plano caro, gasto invisível</li>
+        <li>Nunca inventa número e nunca dá sermão</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 5. O QUE VOCÊ RECEBE ═══════════════ -->
+
+  <section class="v-section" id="conteudo-produto">
+    <div class="container container--wide">
+      <div class="v-section-head">
+        <span class="eyebrow">Dentro do produto</span>
+        <h2>O que você recebe</h2>
+      </div>
+
+      <div class="v-grid">
+        <article class="v-module">
+          <span class="num">01</span>
+          <h3>O Copiloto (arquivo .md)</h3>
+          <p>
+            O agente. Você anexa na sua IA e ele assume. O setup é guiado: ele pergunta,
+            você responde, e sai do outro lado com o seu sistema montado.
+          </p>
+        </article>
+        <article class="v-module">
+          <span class="num">02</span>
+          <h3>Manual do Copiloto (PDF)</h3>
+          <p>
+            Passo a passo de instalação com print de cada tela. Três caminhos: Claude,
+            Gemini e qualquer outra IA que aceite anexo.
+          </p>
+        </article>
+        <article class="v-module">
+          <span class="num">03</span>
+          <h3>Planilha 2026 (bônus)</h3>
+          <p>
+            Doze abas mensais de controle de gastos, com o rateio de streaming já montado.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 6. PRA QUEM É ═══════════════ -->
+
+  <section class="v-section v-section--alt" id="pra-quem">
+    <div class="container container--wide">
+      <div class="v-section-head">
+        <h2>Isso é pra você?</h2>
+      </div>
+
+      <div class="v-fit">
+        <div class="card">
+          <h3>É pra você se…</h3>
+          <ul class="v-list v-list--check">
+            <li>Você paga assinatura e divide com amigos, família ou namorado</li>
+            <li>Você faz conta de cabeça todo mês pra saber quem deve quanto</li>
+            <li>Você cobra e depois não lembra se recebeu</li>
+            <li>Você já tentou planilha ou app de finanças e largou no terceiro dia</li>
+            <li>Você quer organizar as contas sem preencher formulário todo dia</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Não é pra você se…</h3>
+          <ul class="v-list v-list--x">
+            <li>Você quer um app que conecta no banco e categoriza sozinho, porque aqui a conversa é com a IA</li>
+            <li>Você não quer abrir a IA nenhuma vez no mês, porque quem pergunta é você</li>
+            <li>Você procura recomendação de investimento, porque ele não dá</li>
+            <li>Você prefere não colocar os seus números em uma ferramenta de IA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 7. QUEM FAZ ═══════════════
+       Sem depoimento até existir cliente real com autorização.
+       Quando existir, a seção de prova do _template entra AQUI.          -->
+
+  <section class="v-section" id="sobre">
+    <div class="container">
+      <div class="v-section-head">
+        <span class="eyebrow">Quem construiu</span>
+        <h2>Thayná de Morais</h2>
+        <p class="lede">
+          Eu construí o Copiloto porque eu era a pessoa do cartão. Pago Netflix, HBO e
+          Spotify, R$ 149,05 por mês, e divido com seis pessoas em combinações diferentes.
+          Uso esse sistema todo mês pra fechar o rateio e mandar as cobranças antes de
+          esquecer. Fora isso, trabalho com tráfego pago e monto sistemas de IA que rodam
+          em produção, que é de onde saem os agentes que eu vendo aqui.
+        </p>
+        <p class="lede">
+          O produto está saindo agora, então ainda não tem depoimento de cliente. Quando
+          tiver, eles entram aqui com nome e autorização de quem falou.
+        </p>
+      </div>
+      <p class="center">
+        <a href="../../" class="btn btn--ghost">Ver o portfólio completo</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 8. A OFERTA ═══════════════ -->
+
+  <section class="v-section v-section--alt" id="oferta">
+    <div class="container container--wide">
+      <div class="v-section-head">
+        <span class="eyebrow">A oferta</span>
+        <h2>Leve o Copiloto por R$ 37</h2>
+      </div>
+
+      <div class="v-offer">
+        <h3>Controle de Streaming e Contas Divididas com IA</h3>
+
+        <ul class="v-includes">
+          <li>O Copiloto, o agente em arquivo .md</li>
+          <li>Manual do Copiloto em PDF, com print de cada passo</li>
+          <li>Planilha 2026 com 12 abas mensais (bônus)</li>
+          <li>Atualizações futuras incluídas</li>
+          <li>Acesso vitalício ao material</li>
+        </ul>
+
+        <div class="v-price">
+          <span class="now">R$ 37<small> à vista</small></span>
+          <span class="terms">Pix ou cartão. Pagamento único, sem mensalidade.</span>
+        </div>
+
+        <a href="#" data-checkout class="btn btn--primary btn--lg btn--block">Quero meu Copiloto</a>
+        <span class="v-reassure">R$ 37 é o preço de entrada. Depois do lançamento ele passa para R$ 47.</span>
+      </div>
+
+      <p class="v-guarantee">
+        <strong>Garantia de 7 dias.</strong> Comprou, abriu e não era pra você?
+        Pede o reembolso dentro do prazo e eu devolvo 100%, sem pergunta e sem burocracia.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 9. FAQ ═══════════════ -->
+
+  <section class="v-section" id="faq">
+    <div class="container">
+      <div class="v-section-head">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>Antes de comprar</h2>
+      </div>
+
+      <div class="v-faq">
+        <details>
+          <summary>Preciso pagar alguma inteligência artificial?</summary>
+          <p>
+            Não. Funciona na versão gratuita do Claude e do Gemini, e em qualquer outra
+            IA que aceite anexo. O Manual mostra o caminho em cada uma.
+          </p>
+        </details>
+        <details>
+          <summary>Como recebo o material?</summary>
+          <p>
+            Assim que o pagamento é aprovado, a Hotmart manda um e-mail com o acesso à pasta
+            com os três arquivos. Pix costuma aprovar na hora.
+          </p>
+        </details>
+        <details>
+          <summary>Sou leiga em tecnologia, vou conseguir instalar?</summary>
+          <p>
+            O Manual tem print de cada tela, do primeiro clique até o Copiloto respondendo.
+            Se travar, me escreve que eu te ajudo.
+          </p>
+        </details>
+        <details>
+          <summary>Isso é só um monte de prompt pronto?</summary>
+          <p>
+            Prompt solto você usa uma vez e esquece. O Copiloto faz um setup guiado, guarda
+            quais assinaturas você paga e quem divide cada uma, e a partir daí responde com
+            os seus números.
+          </p>
+        </details>
+        <details>
+          <summary>Meus dados financeiros vão pra onde?</summary>
+          <p>
+            Ficam na sua conversa, dentro da sua conta de IA. O arquivo roda no seu ambiente
+            e eu não tenho acesso a nada do que você digita.
+          </p>
+        </details>
+        <details>
+          <summary>Divido com só uma pessoa, ainda vale?</summary>
+          <p>
+            Vale se hoje você faz a conta na mão. Com duas pessoas o ganho é a cobrança
+            pronta e o controle de quem pagou. O rateio fica mais forte quanto mais gente e
+            mais serviço tiver.
+          </p>
+        </details>
+        <details>
+          <summary>Por quanto tempo tenho acesso?</summary>
+          <p>
+            Vitalício. É compra única, sem mensalidade, e as atualizações do material entram
+            sem custo pra quem já comprou.
+          </p>
+        </details>
+        <details>
+          <summary>E se não servir pra mim?</summary>
+          <p>
+            Você tem 7 dias pra pedir reembolso integral, por qualquer motivo, sem precisar
+            justificar. Está escrito nos <a href="../../termos.html">termos de uso</a> e o
+            pedido pode ser feito pela própria Hotmart.
+          </p>
+        </details>
+        <details>
+          <summary>Tem suporte?</summary>
+          <p>
+            Tem, por e-mail, com resposta em até 3 dias úteis:
+            <a href="mailto:tayna.0morais@icloud.com">tayna.0morais@icloud.com</a>.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 10. FECHAMENTO ═══════════════ -->
+
+  <section class="v-section v-section--alt">
+    <div class="container">
+      <div class="v-section-head" style="margin-bottom:var(--space-5)">
+        <h2>A próxima fatura chega do mesmo jeito</h2>
+        <p class="lede">A diferença é quanto tempo você vai gastar pra saber quem te deve.</p>
+      </div>
+      <div class="v-actions">
+        <a href="#" data-checkout class="btn btn--primary btn--lg">Quero meu Copiloto por R$ 37</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Barra fixa no mobile: some quando o bloco de oferta está na tela -->
+<div class="v-sticky-cta">
+  <span class="label"><strong>R$ 37</strong>Copiloto</span>
+  <a href="#" data-checkout class="btn btn--primary">Comprar</a>
+</div>
+
+<footer class="site-footer">
+  <div class="container container--wide">
+    <p>Thayná de Morais &middot; Jaraguá do Sul, SC</p>
+    <div class="footer-links">
+      <a href="../../">Portfólio</a>
+      <a href="../">Produtos</a>
+      <a href="../../#contato">Contato</a>
+      <a href="../../privacidade.html">Privacidade</a>
+      <a href="../../termos.html">Termos de uso</a>
+    </div>
+    <p style="margin-top:var(--space-4)">&copy; <span data-year>2026</span> Thayná de Morais.</p>
+  </div>
+</footer>
+
+</body>
+</html>
